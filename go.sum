@@ -1,5 +1,7 @@
 github.com/danomagnum/gologix v0.38.0-beta h1:iF+Jiru3XaHbslUgdemmrtI8E1R5BvIHQ12iHoANDIo=
 github.com/danomagnum/gologix v0.38.0-beta/go.mod h1:a0mVZ0+1vBg6R56BLSk68iO9XQGHyqEkyh33OCCIr9k=
+github.com/joyautomation/tentacle-go-common v0.0.1 h1:eHeZlMXIRS/83eQA76+pU1SRj3TaMBI8JZ/B669Mgko=
+github.com/joyautomation/tentacle-go-common v0.0.1/go.mod h1:5dEjsJkslyn0AhhGVho7Kz7lydu6KDwWXK6SfFfFfN0=
 github.com/klauspost/compress v1.18.0 h1:c/Cqfb0r+Yi+JtIEq73FWXVkRonBlf0CRNYc8Zttxdo=
 github.com/klauspost/compress v1.18.0/go.mod h1:2Pp+KzxcywXVXMr50+X0Q/Lsb43OQHYWRCY2AiWywWQ=
 github.com/nats-io/nats.go v1.48.0 h1:pSFyXApG+yWU/TgbKCjmm5K4wrHu86231/w84qRVR+U=

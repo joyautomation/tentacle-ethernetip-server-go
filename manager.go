@@ -7,6 +7,7 @@ import (
 	"sync"
 	"time"
 
+	common "github.com/joyautomation/tentacle-go-common"
 	"github.com/nats-io/nats.go"
 )
 
@@ -329,7 +330,7 @@ func (m *Manager) subscribeToSource(tagName, source, cipType string, isUdt bool)
 
 // handleScalarUpdate processes a NATS message for a scalar tag.
 func (m *Manager) handleScalarUpdate(tagName, cipType string, msg *nats.Msg) {
-	var data PlcDataMessage
+	var data common.PlcDataMessage
 	if err := json.Unmarshal(msg.Data, &data); err != nil {
 		logDebug(serviceType, "Failed to unmarshal data for %s: %v", tagName, err)
 		return
@@ -350,7 +351,7 @@ func (m *Manager) handleUdtMemberUpdate(tagName, baseSource string, msg *nats.Ms
 		return
 	}
 
-	var data PlcDataMessage
+	var data common.PlcDataMessage
 	if err := json.Unmarshal(msg.Data, &data); err != nil {
 		logDebug(serviceType, "Failed to unmarshal UDT member data for %s.%s: %v", tagName, memberPath, err)
 		return
@@ -366,7 +367,7 @@ func (m *Manager) handleUdtMemberUpdate(tagName, baseSource string, msg *nats.Ms
 
 // handleUdtWholeUpdate processes a NATS message for a whole UDT value update.
 func (m *Manager) handleUdtWholeUpdate(tagName string, msg *nats.Msg) {
-	var data PlcDataMessage
+	var data common.PlcDataMessage
 	if err := json.Unmarshal(msg.Data, &data); err != nil {
 		logDebug(serviceType, "Failed to unmarshal whole UDT data for %s: %v", tagName, err)
 		return
@@ -448,7 +449,7 @@ func (m *Manager) processWritebacks() {
 		}
 
 		// Publish write command
-		cmdMsg := PlcDataMessage{
+		cmdMsg := common.PlcDataMessage{
 			ModuleID:   moduleID,
 			DeviceID:   moduleID,
 			VariableID: event.TagName,

@@ -40,40 +40,6 @@ type ServerUnsubscribeRequest struct {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// Published message types
-// ═══════════════════════════════════════════════════════════════════════════
-
-// PlcDataMessage matches the NATS schema PlcDataMessage published by tentacle-plc.
-type PlcDataMessage struct {
-	ModuleID    string      `json:"moduleId"`
-	DeviceID    string      `json:"deviceId"`
-	VariableID  string      `json:"variableId"`
-	Value       interface{} `json:"value"`
-	Timestamp   int64       `json:"timestamp"`
-	Datatype    string      `json:"datatype"` // "number", "boolean", "string", "udt"
-	Description string      `json:"description,omitempty"`
-}
-
-// ServiceHeartbeat is published every 10s to the service_heartbeats KV bucket.
-type ServiceHeartbeat struct {
-	ServiceType string                 `json:"serviceType"`
-	ModuleID    string                 `json:"moduleId"`
-	LastSeen    int64                  `json:"lastSeen"`
-	StartedAt   int64                  `json:"startedAt"`
-	Metadata    map[string]interface{} `json:"metadata,omitempty"`
-}
-
-// ServiceLogEntry is published to service.logs.ethernetip-server.ethernetip-server for log streaming.
-type ServiceLogEntry struct {
-	Timestamp   int64  `json:"timestamp"`
-	Level       string `json:"level"`
-	Message     string `json:"message"`
-	ServiceType string `json:"serviceType"`
-	ModuleID    string `json:"moduleId"`
-	Logger      string `json:"logger,omitempty"`
-}
-
-// ═══════════════════════════════════════════════════════════════════════════
 // Variable info (returned by variables/browse requests)
 // ═══════════════════════════════════════════════════════════════════════════
 

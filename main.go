@@ -11,6 +11,7 @@ import (
 	"syscall"
 	"time"
 
+	common "github.com/joyautomation/tentacle-go-common"
 	"github.com/nats-io/nats.go"
 	"github.com/nats-io/nats.go/jetstream"
 )
@@ -34,7 +35,7 @@ func (l *natsLogger) publish(level, logger, msg string) {
 	l.mu.Lock()
 	defer l.mu.Unlock()
 
-	entry := ServiceLogEntry{
+	entry := common.ServiceLogEntry{
 		Timestamp:   time.Now().UnixMilli(),
 		Level:       level,
 		Message:     msg,
@@ -167,7 +168,7 @@ func main() {
 	startedAt := time.Now().UnixMilli()
 
 	publishHeartbeat := func() {
-		hb := ServiceHeartbeat{
+		hb := common.ServiceHeartbeat{
 			ServiceType: serviceType,
 			ModuleID:    moduleID,
 			LastSeen:    time.Now().UnixMilli(),

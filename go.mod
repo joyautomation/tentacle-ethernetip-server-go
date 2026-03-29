@@ -4,6 +4,7 @@ go 1.25.5
 
 require (
 	github.com/danomagnum/gologix v0.38.0-beta
+	github.com/joyautomation/tentacle-go-common v0.0.1
 	github.com/nats-io/nats.go v1.48.0
 )
 
